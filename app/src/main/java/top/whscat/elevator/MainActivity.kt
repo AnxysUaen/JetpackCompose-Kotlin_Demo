@@ -82,7 +82,7 @@ fun QRCodeView(bitmap: Bitmap) {
     }
 }
 
-private fun generateQRCode(content: String): android.graphics.Bitmap {
+private fun generateQRCode(content: String): Bitmap {
     val hints = hashMapOf<EncodeHintType, Any>()
     hints[EncodeHintType.ERROR_CORRECTION] = ErrorCorrectionLevel.H
     val writer = QRCodeWriter()
