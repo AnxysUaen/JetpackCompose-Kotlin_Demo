@@ -91,6 +91,8 @@ private fun generateQRCode(content: String): Bitmap {
     return barcodeEncoder.createBitmap(bitMatrix)
 }
 
+private const val s = """7e517b80acda11eca52d92db35606443"""
+
 @Composable
 private fun getCipherText(): String {
     val digest = MessageDigest.getInstance("SHA-256")
@@ -102,7 +104,7 @@ private fun getCipherText(): String {
     val iv = ivWords.map { it.toByte() }.toByteArray()
 
     val timeKey = DateTimeFormatter.ofPattern("yyMMddHHmmss").format(LocalDateTime.now())
-    val publicStr = """01${timeKey}0057996b4072b611ed4836069bb4abca0e2641597300000000"""
+    val publicStr = """01${timeKey}00""" + s + """2641597300000000"""
 
     val cipher = Cipher.getInstance("AES/CBC/NoPadding")
     val keySpec = SecretKeySpec(level, "AES")
