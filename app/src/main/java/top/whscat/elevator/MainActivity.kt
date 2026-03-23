@@ -104,7 +104,7 @@ private fun getCipherText(): String {
     val timeKey = DateTimeFormatter.ofPattern("yyMMddHHmmss").format(LocalDateTime.now())
 
     // 01 + timeKey + 00 + userId + token + 00000000
-    val publicStr = """01${timeKey}00""" + "7e517b80acda11eca52d92db35606443" + "86534297" + "00000000"
+    val publicStr = """01${timeKey}00""" + "a25709eb21ea11f186b6fa163e25ed06" + "78364521" + "00000000"
 
     val cipher = Cipher.getInstance("AES/CBC/NoPadding")
     val keySpec = SecretKeySpec(level, "AES")
